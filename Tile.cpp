@@ -53,8 +53,6 @@ bool Tile::moveTo(Tile* destTile, Character* who) {
 
         if (canBeEntered(destTile, who)) {
 
-
-
             this->setCharacter(nullptr);
             who->setCurrentTile(destTile->onEnter(this, who));
             destTile->onEnter(this, who)->setCharacter(who);
