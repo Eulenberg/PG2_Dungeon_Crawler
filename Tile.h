@@ -61,8 +61,9 @@ public:
     virtual Tile* onLeave(Tile* destTile, Character* who) = 0;
 
 
+    bool canBeLeft(Character* who);
 
-
+    bool canBeEntered(Tile* destTile, Character* who);
 }; // class Tile
 
 

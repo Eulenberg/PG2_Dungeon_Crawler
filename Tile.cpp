@@ -49,19 +49,15 @@ Tile::Tile(const std::string& texture, const int row, const int column, bool can
 bool Tile::moveTo(Tile* destTile, Character* who) {
 
 
-    if (onLeave(this, who) != nullptr) {
+    if (this->canBeLeft(who)) {
 
-        if (destTile->onEnter(this, who) != nullptr) {
+        if (canBeEntered(destTile, who)) {
 
 
 
             this->setCharacter(nullptr);
             who->setCurrentTile(destTile->onEnter(this, who));
             destTile->onEnter(this, who)->setCharacter(who);
-
-
-
-
 
             setIsOccupied(false);
             destTile->setIsOccupied(true);
@@ -70,6 +66,11 @@ bool Tile::moveTo(Tile* destTile, Character* who) {
     }
     return false;
 }
+
+bool Tile::canBeEntered(Tile* destTile, Character* who)  {
+    return destTile->onEnter(this, who) != nullptr; }
+
+bool Tile::canBeLeft(Character* who) { return onLeave(this, who) != nullptr; }
 
 
 bool Tile::getCanMoved() const {
