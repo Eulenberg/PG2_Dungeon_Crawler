@@ -111,8 +111,8 @@ void Level::createPortals(int p1Row, int p1Col, int p2Row, int p2Col) {
     Portal* newPortal2 = new Portal(p2Row,p2Col, false, nullptr);
     newPortal1->setDestination(newPortal2);
     newPortal2->setDestination(newPortal1);
-    tileVector.at(newPortal1->getRow()).at(newPortal1->getColumn())->deleteTile();
-    tileVector.at(newPortal2->getRow()).at(newPortal2->getColumn())->deleteTile();
+    delete tileVector.at(newPortal1->getRow()).at(newPortal1->getColumn());
+    delete tileVector.at(newPortal2->getRow()).at(newPortal2->getColumn());
     tileVector.at(newPortal1->getRow()).at(newPortal1->getColumn()) = newPortal1;
     tileVector.at(newPortal2->getRow()).at(newPortal2->getColumn()) = newPortal2;
 

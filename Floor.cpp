@@ -13,9 +13,7 @@ Floor::Floor() : Tile(".", true) {
 Floor::Floor(const int row, const int column, bool isOccupied, Character* character) : Tile{".", row, column, true,
                                                                                             isOccupied, character} {}
 
-Floor::~Floor()  {
 
-}
 
 Tile* Floor::onEnter(Tile* fromTile, Character* who) {
 
