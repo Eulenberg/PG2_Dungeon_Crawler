@@ -47,6 +47,10 @@ public:
     int getMaxColumn() const;
 
     bool isEdgeTile(int rows, int columns, int i, int j) const;
+
+    bool isMinEdgeTile(int currentRow, int currentColum) const;
+
+    bool isMaxEdgeTile(int maxRows, int maxColumns, int currentRow, int currentColum) const;
 };
 
 

@@ -99,7 +99,13 @@ void Level::createEmptyLevel(int rows, int columns) {
 }
 
 bool Level::isEdgeTile(int maxRows, int maxColumns, int currentRow, int currentColum) const {
-    return (currentColum == 0 || currentRow == 0) || (currentRow == maxRows || currentColum == maxColumns); }
+    return isMinEdgeTile(currentRow, currentColum) || isMaxEdgeTile(maxRows, maxColumns, currentRow, currentColum); }
+
+bool Level::isMaxEdgeTile(int maxRows, int maxColumns, int currentRow, int currentColum) const { return (currentRow == maxRows || currentColum == maxColumns); }
+
+bool Level::isMinEdgeTile(int currentRow, int currentColum) const{
+    return (currentColum == 0 || currentRow == 0);
+}
 
 void Level::createCharacter(int row, int col) {
 
