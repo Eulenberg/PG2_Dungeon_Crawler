@@ -86,7 +86,7 @@ void Level::createEmptyLevel(int rows, int columns) {
         tileVector.emplace_back(std::vector<Tile*>{});
 
         for (int j = 0; j <= columns; j++) {
-            if ((j == 0 || i == 0) ||( i == rows || j == columns)) {
+            if (isEdgeTile(rows, columns, i, j)) {
 
                 tileVector.at(i).emplace_back(new Wall(i, j, true, nullptr));
 
@@ -97,6 +97,9 @@ void Level::createEmptyLevel(int rows, int columns) {
 
     }
 }
+
+bool Level::isEdgeTile(int maxRows, int maxColumns, int currentRow, int currentColum) const {
+    return (currentColum == 0 || currentRow == 0) || (currentRow == maxRows || currentColum == maxColumns); }
 
 void Level::createCharacter(int row, int col) {
 
