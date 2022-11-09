@@ -82,10 +82,9 @@ void Level::createEmptyLevel(int rows, int columns) {
 
     for (int i{0}; i <= rows; i++) {
 
-
         tileVector.emplace_back(std::vector<Tile*>{});
 
-        for (int j = 0; j <= columns; j++) {
+        for (int j{0}; j <= columns; j++) {
             if (isEdgeTile(rows, columns, i, j)) {
 
                 tileVector.at(i).emplace_back(new Wall(i, j, true, nullptr));
