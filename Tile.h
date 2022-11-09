@@ -33,7 +33,7 @@ public:
     Tile();
     Tile(const std::string& texture, int row, int column, bool canMoved, bool isOccupied, Character* character);
     //dTor
-    virtual ~Tile();
+    virtual ~Tile() =default;
 
     explicit Tile(const std::string& texture , bool=0, Character* =nullptr);
 
@@ -54,12 +54,13 @@ public:
 
 
     bool moveTo(Tile* destTile, Character* who);
+    bool hasCharacter();
 
     virtual Tile* onEnter(Tile* fromTile, Character* who) = 0;
 
     virtual Tile* onLeave(Tile* destTile, Character* who) = 0;
 
-    void deleteTile();
+
 
 
 }; // class Tile

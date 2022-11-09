@@ -51,7 +51,7 @@ bool Tile::moveTo(Tile* destTile, Character* who) {
 
     if (onLeave(this, who) != nullptr) {
 
-        if (destTile->onEnter(destTile, who) != nullptr) {
+        if (destTile->onEnter(this, who) != nullptr) {
 
 
 
@@ -84,15 +84,18 @@ void Tile::setIsOccupied(bool occupied) {
     Tile::isOccupied = occupied;
 }
 
-void Tile::deleteTile() {
 
-    delete this;
+bool Tile::hasCharacter() {
 
+    if (character != nullptr)
+    {
+        return true;
+    }
+
+    return false;
 }
 
-Tile::~Tile() {
 
-}
 
 
 

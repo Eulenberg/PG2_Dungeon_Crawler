@@ -17,11 +17,7 @@ Wall::Wall(const int row, const int column, bool isOccupied, Character* characte
 
 }
 
-Wall::~Wall() {
 
-
-
-}
 
 Tile* Wall::onEnter(Tile* fromTile, Character* who) {
 

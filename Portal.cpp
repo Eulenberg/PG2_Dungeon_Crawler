@@ -15,9 +15,7 @@ Portal::Portal(const int row, const int column, bool isOccupied, Character* char
 {
 
 }
-Portal::~Portal() {
 
-}
 
 
 // TODO Potential Teleport Function

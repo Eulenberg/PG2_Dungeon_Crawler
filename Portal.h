@@ -15,7 +15,7 @@ private:
 public:
     Portal();
     Portal(int row, int column, bool isOccupied, Character* character);
-    ~Portal() override;
+    ~Portal() override =default;
 
     Tile* getDestination() const;
 

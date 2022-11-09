@@ -16,17 +16,17 @@
 
 Level::~Level() {
 
-   for (const std::vector<Tile*>& n: tileVector) {
-        for (Tile* o : n) {
+   for (std::vector<Tile*>& vec: tileVector) {
+        for (Tile*& tile : vec) {
 
-            delete o;
-            o = nullptr;
+            delete tile;
+            tile = nullptr;
         }
     }
-    for (auto n : characterVector) {
+    for (Character*& character : characterVector) {
 
-        delete n;
-        n = nullptr;
+        delete character;
+        character = nullptr;
     }
 }
 
@@ -62,7 +62,7 @@ void Level::placeCharacter(Character* c, int row, int col) {
 
 }
 
- std::vector<std::vector<Tile*>>& Level::getTileVector()  {
+std::vector<std::vector<Tile*>>& Level::getTileVector()  {
     return tileVector;
 }
 

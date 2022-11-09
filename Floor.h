@@ -13,7 +13,7 @@ class Floor : public Tile {
 public:
     Floor();
     Floor(int row, int column, bool isOccupied, Character* character);
-    ~Floor() override;
+    ~Floor() override =default;
 
     Tile* onEnter(Tile* fromTile, Character* who) override;
 
